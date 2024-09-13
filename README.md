@@ -57,10 +57,8 @@ The API is defined using the OpenAPI specification. You can view the complete sp
 
 Here are the architecture diagrams for the Friends API:
 
-<picture>
-    <source srcset="current-architecture-dark.png" media="(prefers-color-scheme: dark)">
-    <img src="assets/current-architecture-light.png">
-</picture>
+![Architecture Diagram](./assets/current-architecture-dark.png#gh-dark-mode-only)
+![Architecture Diagram](./assets/current-architecture-dark.png#gh-light-mode-only)
 
 ### 🎯 Session Objective
 
