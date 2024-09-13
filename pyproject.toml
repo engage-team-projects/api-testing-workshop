@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "api-testing-workshop"
+version = "0.1.0"
+description = ""
+authors = ["jossmoff <josshmoffatt@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aws-cdk-lib = "^2.1.0"
+constructs = "^10.0.5"
+boto3 = "^1.35.18"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.4"
+lefthook = "^0.1.2"
+pytest = "^8.3.3"
+behave = "^1.2.6"
+localstack = "^3.7.2"
+poethepoet = "^0.28.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks.stand-up-localstack]
+cmd  = "sh -c 'docker compose -f localstack/docker-compose.yaml up&'"
+help   = "Standup locastack"
+
+[tool.poe.tasks.deploy-cdk-stack]
+cmd  = "sh -c 'localstack/standup-stack.sh'"
+help   = "Deploy stack to localstack"
+
+[tool.poe.tasks.standup-stack]
+sequence = ["stand-up-localstack", "deploy-cdk-stack"]
+help     = "Standup localstack and deploy stack"
+
+[tool.poe.tasks.acceptance-test]
+cmd  = "poetry run behave tests/acceptance"
+help = "Run the behave acceptance tests"
+
+[tool.poe.tasks.local-acceptance]
+sequence = ["standup-stack", "acceptance-test"]
+help     = "Standup local cdk stack and run acceptance tests"

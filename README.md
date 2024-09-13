@@ -46,6 +46,22 @@ This repository contains the materials for a workshop on API testing. The worksh
 3. Start LocalStack using Docker Compose: `docker-compose up -d`
 4. Deploy the API and Lambda functions using AWS CDK: `cdk deploy`
 
-## 🎯 Session Objective
+## What is the Friends API?
+The Friends API is a RESTful API that allows users to manage and retrieve information about their friends.
+
+### 📖 API Specification
+
+The API is defined using the OpenAPI specification. You can view the complete specification [here](link_to_openapi_spec).
+
+### 👷‍♀️ Architecture Diagrams
+
+Here are the architecture diagrams for the Friends API:
+
+<picture>
+    <source srcset="current-architecture-dark.png" media="(prefers-color-scheme: dark)">
+    <img src="assets/current-architecture-light.png">
+</picture>
+
+### 🎯 Session Objective
 
 The main goal of this session is to implement and test the "Get Specific Friend" endpoint. This endpoint allows users to retrieve information about a specific friend in the Friends API. Participants will learn how to define the API specification using OpenAPI, implement the endpoint using AWS Lambda, and write tests using Python.
